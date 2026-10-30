@@ -51,7 +51,8 @@ export class ReportPage {
 
   /** Opens the demo on the request, then opens the registration form. */
   async gotoForm(): Promise<void> {
-    await this.page.goto('/');
+    // './' keeps a GitHub Pages project path. '/' would jump to the user site.
+    await this.page.goto('./');
     await this.by('open-report').click();
     await expect(this.reportView).toBeVisible();
   }
